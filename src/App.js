@@ -32,7 +32,9 @@ function App({ youtube }) {
   };
 
   useEffect(() => {
-    initVideo()
+    youtube
+    .mostPopular()
+    .then(videos => setVideos(videos));
   }, []);
 
   return (
