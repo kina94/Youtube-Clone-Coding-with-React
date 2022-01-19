@@ -1,5 +1,4 @@
 import React from 'react'
-import VideoList from '../video_list/video_list'
 import styles from './video_info.module.css'
 
 const VideoInfo = ({ video }) => {
