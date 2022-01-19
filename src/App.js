@@ -10,8 +10,8 @@ function App({ youtube }) {
 
   const initVideo = () => {
     youtube
-    .mostPopular()
-    .then(videos => setVideos(videos));
+      .mostPopular()
+      .then(videos => setVideos(videos));
   }
 
   const selectVideo = video => {
@@ -32,9 +32,7 @@ function App({ youtube }) {
   };
 
   useEffect(() => {
-    youtube
-    .mostPopular()
-    .then(videos => setVideos(videos));
+    initVideo();
   }, []);
 
   return (
