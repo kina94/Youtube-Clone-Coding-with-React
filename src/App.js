@@ -8,35 +8,44 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
+  const initVideo = () => {
+    youtube
+    .mostPopular()
+    .then(videos => setVideos(videos));
+  }
+
   const selectVideo = video => {
     setSelectedVideo(video);
   };
+
+  const home = () => {
+    setSelectedVideo(null);
+    initVideo();
+  }
 
   const search = query => {
     youtube
       .search(query)
       .then(videos =>
         setVideos(videos));
-        setSelectedVideo(null);
+    setSelectedVideo(null);
   };
 
   useEffect(() => {
-    youtube
-      .mostPopular()
-      .then(videos => setVideos(videos));
+    initVideo()
   }, []);
 
   return (
     <div className={styles.app}>
-      <VideoSearch onSearch={search}></VideoSearch>
+      <VideoSearch onSearch={search} onHome={home}></VideoSearch>
       <section className={styles.content}>
         {selectedVideo && (<div className={styles.detail}>
           <VideoInfo video={selectedVideo} />
         </div>
         )}
         <div className={styles.list}>
-        <VideoList videos={videos} onVideoClick={selectVideo}
-        display={selectedVideo ? 'list':'grid'}></VideoList>
+          <VideoList videos={videos} onVideoClick={selectVideo}
+            display={selectedVideo ? 'list' : 'grid'}></VideoList>
         </div>
       </section>
     </div>
