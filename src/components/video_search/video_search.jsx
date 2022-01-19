@@ -9,15 +9,6 @@ const VideoSearch = ({onSearch, onHome}) => {
         onSearch(value);
     };
 
-    const handleHome=()=>{
-        const value=inputRef.current.value;
-        onHome(value)
-    }
-
-    const onClick2=()=>{
-        handleHome();
-    }
-
     const onClick=()=>{
         handleSearch();
     };
@@ -30,7 +21,7 @@ const VideoSearch = ({onSearch, onHome}) => {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <img className={styles.img} onClick={onClick2} src="/images/logo.png"></img>
+                <img className={styles.img} onClick={onHome} src="/images/logo.png"></img>
                 <h1 className={styles.title}>Youtube</h1>
             </div>
             <input ref={inputRef} className={styles.input} type="search" placeholder='Search...' onKeyPress={onKeyPress}/>
