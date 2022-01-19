@@ -21,7 +21,7 @@ const VideoSearch = ({onSearch}) => {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <img className={styles.img} src="/images/logo.png"></img>
+                <img className={styles.img} src="/images/logo.png" ></img>
                 <h1 className={styles.title}>Youtube</h1>
             </div>
             <input ref={inputRef} className={styles.input} type="search" placeholder='Search...' onKeyPress={onKeyPress}/>
