@@ -9,7 +9,6 @@ const VideoSearch = ({onSearch}) => {
         onSearch(value);
     };
 
-
     const onClick=()=>{
         handleSearch();
     };
