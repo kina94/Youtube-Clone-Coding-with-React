@@ -5,5 +5,3 @@
 * PostCSS
 * Restful APIs
 * Youtube APIs
-* Postman
-* Dependency injection
